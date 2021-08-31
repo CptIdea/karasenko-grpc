@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package mutual;
 
-option go_package = "karasenko-grpc/mutual";
+option go_package = "mutual/mutual";
 
 import "google/api/annotations.proto";
 
@@ -20,7 +20,7 @@ message GetMutualResponse{
   repeated Group groups = 1;
 }
 
-service rusprofile{
+service mutual{
   rpc GetMutual(GetMutualRequest) returns (GetMutualResponse){
     option (google.api.http) = {
       post: "/getMutual"

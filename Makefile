@@ -9,4 +9,4 @@ protoc:
  	--grpc-gateway_opt logtostderr=true \
  	--grpc-gateway_opt paths=source_relative \
  	--openapiv2_out ./api/ \
- 	 mutuals.proto
+ 	 mutual.proto

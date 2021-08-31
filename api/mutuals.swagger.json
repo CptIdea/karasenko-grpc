@@ -6,7 +6,7 @@
   },
   "tags": [
     {
-      "name": "rusprofile"
+      "name": "mutual"
     }
   ],
   "consumes": [
@@ -18,7 +18,7 @@
   "paths": {
     "/getMutual": {
       "post": {
-        "operationId": "rusprofile_GetMutual",
+        "operationId": "mutual_GetMutual",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -44,7 +44,7 @@
           }
         ],
         "tags": [
-          "rusprofile"
+          "mutual"
         ]
       }
     }
