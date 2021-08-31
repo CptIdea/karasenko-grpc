@@ -10,3 +10,12 @@ protoc:
  	--grpc-gateway_opt paths=source_relative \
  	--openapiv2_out ./api/ \
  	 mutual.proto
+
+build-grpc:
+	go build -o build ./cmd/mutual-grpc
+
+build-http:
+	go build -o build ./cmd/mutual-http
+
+test-grpc:
+	go run ./tests/test-client.go
