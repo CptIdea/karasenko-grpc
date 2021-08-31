@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package mutual;
+
+option go_package = "karasenko-grpc/mutual";
+
+import "google/api/annotations.proto";
+
+message GetMutualRequest{
+  int32 target = 1;
+  int32 current = 2;
+}
+
+message Group{
+  int32 id = 1;
+  string name = 2;
+}
+
+message GetMutualResponse{
+  repeated Group groups = 1;
+}
+
+service rusprofile{
+  rpc GetMutual(GetMutualRequest) returns (GetMutualResponse){
+    option (google.api.http) = {
+      post: "/getMutual"
+      body: "*"
+    };
+  }
+}
