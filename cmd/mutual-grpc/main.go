@@ -3,8 +3,6 @@ package main
 import (
 	"github.com/SevereCloud/vksdk/api"
 	"google.golang.org/grpc"
-	"gorm.io/driver/postgres"
-	"gorm.io/gorm"
 	"log"
 	grpcService "mutual/internal/grpc"
 	"mutual/pkg/config"
@@ -19,15 +17,15 @@ func main() {
 		log.Fatal(err)
 	}
 
-	dsn := cfg.Db.Dsn
-	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
-	if err != nil {
-		log.Fatalf("ошибка подключения базы данных: %s", err)
-	}
+	//dsn := cfg.Db.Dsn
+	//db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
+	//if err != nil {
+	//	log.Fatalf("ошибка подключения базы данных: %s", err)
+	//}
 
 	vk := api.NewVK(cfg.Vk.Token)
 
-	mutualServer := grpcService.NewGrpcServer(db, vk)
+	mutualServer := grpcService.NewGrpcServer(nil, vk)
 
 	server := grpc.NewServer()
 

@@ -8,7 +8,7 @@ type HttpServerConfig struct {
 type GrpcServerConfig struct {
 	Grpc Grpc
 	Vk   Vk
-	Db   Db
+	//Db   Db
 }
 
 type Http struct {

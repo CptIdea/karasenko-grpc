@@ -15,10 +15,10 @@ func GetGrpcServerConfig() (GrpcServerConfig, error) {
 		return GrpcServerConfig{}, err
 	}
 
-	err = envconfig.Process("db", &cfg.Db)
-	if err != nil {
-		return GrpcServerConfig{}, err
-	}
+	//err = envconfig.Process("db", &cfg.Db)
+	//if err != nil {
+	//	return GrpcServerConfig{}, err
+	//}
 
 	return cfg, nil
 }

@@ -7,7 +7,6 @@ import (
 	"github.com/SevereCloud/vksdk/api/params"
 	"gorm.io/gorm"
 	grpc "mutual/pkg/grpc"
-	"mutual/pkg/user"
 )
 
 type grpcServer struct {
@@ -52,16 +51,16 @@ func (g *grpcServer) GetMutual(_ context.Context, request *grpc.GetMutualRequest
 }
 
 func (g *grpcServer) getGroups(id int32) []int {
-	newUser := user.User{VkID: id}
-	err := g.db.First(&newUser).Error
-	if err == nil && len(newUser.Groups) != 0 {
-		ans := make([]int, 0)
-		for _, group := range newUser.Groups {
-			ans = append(ans, int(group))
-		}
-
-		return ans
-	}
+	//newUser := user.User{VkID: id}
+	//err := g.db.First(&newUser).Error
+	//if err == nil && len(newUser.Groups) != 0 {
+	//	ans := make([]int, 0)
+	//	for _, group := range newUser.Groups {
+	//		ans = append(ans, int(group))
+	//	}
+	//
+	//	return ans
+	//}
 
 	user, err := g.vk.UsersGetSubscriptions(params.NewUsersGetSubscriptionsBuilder().UserID(int(id)).Params)
 	if err != nil {
