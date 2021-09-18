@@ -9,10 +9,8 @@ services:
     environment:
       VK_TOKEN: "a72e938fa72e938fa72e938f5da757bb61aa72ea72e938fc600c8aeb9403ffae922608a"
       GRPC_PORT: "8090"
-    networks:
-      - rusprofile
     ports:
-      - "0.0.0.0:8090:8090"
+      - "8090:8090"
 
   httpserver:
     container_name: httpserver
@@ -24,10 +22,5 @@ services:
       GRPC_PORT: "8090"
     depends_on:
       - grpcserver
-    networks:
-      - rusprofile
     ports:
-      - "0.0.0.0:8080:8080"
-
-networks:
-  rusprofile:
+      - "8080:8080"
